@@ -1,0 +1,87 @@
+<html>
+<head></head>
+<body>
+
+<script type="text/javascript">
+ var day,month,year;
+ day=prompt('Enter day:','');
+ month=prompt('Enter month:','');
+ year=prompt('Enter year:','');
+ day=parseInt(day);
+ month=parseInt(month);
+ year=parseInt(year); 
+ if (day==25 || month==12 || year==2018) {
+ document.write('Today is Christmas'); 
+   document.write('<br>');
+ } 
+
+ var number1=prompt('Enter 1st number:','');
+ var number2=prompt('Enter 2nd number:','');
+ var number3=prompt('Enter 3rd number:','');
+ number1=parseInt(number1);
+ number2=parseInt(number2);
+ number3=parseInt(number3);
+ var max=number1;
+ if (number1<10 && number2<10 && number3<10)
+ {
+      document.write('All the numbers are less than 10');
+       document.write('<br>');
+ }
+
+  var x=prompt('Enter x:','');
+ var y=prompt('Enter y:','');
+x=parseInt(x);
+ y=parseInt(y);
+
+ if (x>0 && y>0)
+ {
+      document.write('First Quadrant');
+       document.write('<br>');
+ }else  if (x<0 && y>0)
+ {
+      document.write('Second Quadrant');
+       document.write('<br>');
+ }else if (x<0 && y<0)
+ {
+      document.write('Third Quadrant');
+       document.write('<br>');
+ }else{
+ 	document.write('Fourth Quadrant');
+ 	document.write('<br>');
+ }
+
+
+ var salary=prompt('Enter salary:','');
+ var years=prompt('Enter years:','');
+ var futsalary;
+
+  if (salary<500 && years>=10)
+ {
+ 	  futsalary=parseInt(salary)+(parseInt(salary)*0.2);
+      document.write('Salary is: '+futsalary);
+       document.write('<br>');
+      
+ }else  if  (salary<500 && years<=10)
+ {
+       futsalary=parseInt(salary)+(parseInt(salary)*0.05);
+      document.write('Salary is: '+futsalary);
+       document.write('<br>');
+ }else if (salary>=500)
+ {
+      document.write('Salary is: '+salary);
+       document.write('<br>');
+ }
+ var number11=prompt('Enter 1st number:','');
+ var number21=prompt('Enter 2nd number:','');
+ var number31=prompt('Enter 3rd number:','');
+ number1=parseInt(number11);
+ number2=parseInt(number21);
+ number3=parseInt(number31);
+  if (number11<10 || number21<10 || number31<10)
+ {
+      document.write('Some numbers are less than 10');
+       document.write('<br>');
+ }
+</script>
+</body>
+</html>

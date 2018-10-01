@@ -1,0 +1,58 @@
+<html>
+<head></head>
+<body>
+<script type="text/javascript">
+
+ var number1=prompt('Enter 1st number:','');
+ var number2=prompt('Enter 2nd number:','');
+ var number3=prompt('Enter 3rd number:','');
+ number1=parseInt(number1);
+ number2=parseInt(number2);
+ number3=parseInt(number3);
+ var max=number1;
+ if (number2>number1)
+ {
+    max=number2;
+ 
+ }
+ if (number3>max)
+ {
+    max=number3;
+}
+ document.write(max); 
+  document.write('<br>'); 
+
+var number11=prompt('Enter 1st number:','');
+ var number21=prompt('Enter 2nd number:','');
+ var number31=prompt('Enter 3rd number:','');
+ number11=parseInt(number11);
+ number21=parseInt(number21);
+ number31=parseInt(number31);
+ var min=number11;
+ if (number21<number11)
+ {
+    min=number21;
+ 
+ }
+ if (number31<min)
+ {
+    min=number31;
+}
+ document.write(min); 
+ document.write('<br>'); 
+
+var x=prompt('Enter a number(0-999):','');
+document.write(x.toString().length);
+document.write('<br>'); 
+
+var y=prompt('Enter a number:','');
+if(y>0){
+	document.write('positive'); 
+}else if(y<0){
+document.write('negative'); 
+}else{
+	document.write('Zero'); 
+}
+</script>
+</body>
+</html>
