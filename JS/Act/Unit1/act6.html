@@ -1,0 +1,53 @@
+<html>
+<head></head>
+<body>
+<script type="text/javascript">
+ var num1,num2;
+ num1=prompt('Enter the first number:','');
+ num2=prompt('Enter the second number:','');
+ var sum=(parseInt(num1)+parseInt(num2));
+ if (num1>num2)
+ {
+ document.write(sum);
+ document.write('<br>'); 
+ }
+ else
+ {
+ document.write(num2-num1);
+ document.write('<br>'); 
+ } 
+ var mark1=prompt('Mark 1:','');
+ var mark2=prompt('Mark 2:','');
+ var mark3=prompt('Mark 3:','');
+ var avg=((parseInt(mark1)*parseInt(mark2)*parseInt(mark3))/3);
+ if (avg>=5)
+  {
+    document.write('You pass!'); 
+    document.write('<br>'); 
+ }else{
+ document.write('You fail!'); 
+    document.write('<br>'); 
+ }
+ var x=prompt('Enter number:','');
+  if (x%2==0)
+ {
+ document.write('Pair number!'); 
+ document.write('<br>'); 
+ }else{
+ document.write('Odd number!'); 
+ document.write('<br>'); 
+ }
+
+  var age=prompt('Enter age:','');
+  if (age>=18 && age<65)
+ {
+ document.write('Working age'); 
+ document.write('<br>'); 
+ }else
+ {
+ document.write('Not working age'); 
+ document.write('<br>'); 
+ }
+</script>
+</body>
+</html>

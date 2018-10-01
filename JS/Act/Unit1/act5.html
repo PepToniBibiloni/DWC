@@ -8,23 +8,31 @@
  var mark2=prompt('Mark 2:','');
  var mark3=prompt('Mark 3:','');
  var avg=((parseInt(mark1)*parseInt(mark2)*parseInt(mark3))/3);
+ var email1=prompt('Email 1:','');
+ var email2=prompt('Email 2:','');
  var age=prompt('Enter age:','');
  var x=prompt('Enter number:','');
- if (avg>=5)
- {
- document.write('Congratulations! You pass the exam'); 
+
+ 
+  if (avg>=5)
+  {
+    document.write('Congratulations! You pass the exam'); 
+    document.write('<br>'); 
  }
  if (email1!=email2)
  {
  document.write('Emails are different!'); 
+ document.write('<br>'); 
  }
- if (age>=18 || age<65)
+ if (age>=18 && age<65)
  {
  document.write('You are in working age'); 
+ document.write('<br>'); 
  }
  if (x%2==0)
  {
  document.write('Pair number!'); 
+ document.write('<br>'); 
  }
 </script>
 </body>
