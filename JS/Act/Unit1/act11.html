@@ -1,0 +1,87 @@
+<html> 
+<head></head>
+ <body>
+ <script type="text/javascript">
+
+var sum;
+var value;
+ value =prompt('Numero:','');
+ sum=parseInt(value);
+do {
+ value =prompt('Numero:','');
+ value=parseInt(value);
+ sum+=parseInt(value);
+ } while (value!=9999);
+
+if(sum>0){
+	document.write('Positive'); 
+}else if(sum<0){
+document.write('Negative'); 
+}else{
+	document.write('Zero'); 
+}
+ document.write('<br>');
+var count=0;
+var male=0;
+var female=0;
+var bet=0;
+var ageMax=0;
+var nameMax;
+var ageMin=100;
+var nameMin;
+do{
+var id =prompt('Id:','');
+if(id==0){
+	break;
+}
+var age =prompt('Age:','');
+var sex =prompt('Male/Female','');
+
+count++;
+if(sex=='Male'){
+	male++;
+}else if(sex=='Female'){
+	female++;
+}
+if(sex=='Male' && (age>=18 && age<=65)){
+	bet++;
+}
+if(age>ageMax && sex=='Female'){
+  ageMax=age;
+  nameMax=id;
+}
+if(age<ageMin && sex=='Male'){
+  ageMin=age;
+  nameMin=id;
+}
+}while(id!=0);
+
+document.write(count+' people');
+ document.write('<br>');
+document.write(male+' mens and '+female+' womens');
+ document.write('<br>');
+document.write(bet+' mens betwenn 18 and 65');
+ document.write('<br>');
+document.write(nameMax+' is the oldest woman');
+ document.write('<br>');
+document.write(nameMin+' is the youngest man');
+ document.write('<br>');
+
+
+var accountNum;
+var clientName;
+var Money;
+
+
+do{
+var accountNum =prompt('AccountNum','');
+if(accountNum==0){
+	break;
+}
+var clientName =prompt('Client Name:','');
+var Money =prompt('Money:','');
+document.write(clientName+' is the owner of '+accountNum+' account with '+Money+'€')
+}while(accountNum!=0);
+</script> 
+</body> 
+</html>

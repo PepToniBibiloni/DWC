@@ -1,0 +1,179 @@
+<html> 
+<head></head>
+<body> 
+<script type="text/javascript"> 
+ 
+var b;
+var h;
+var area;
+var bigger=0;
+ for(i=0;i<3;i++) { 
+ b =prompt('Base:','');
+ h =prompt('Height:','');	
+ area= (parseInt(b)*parseInt(h))/2;
+ if(area>12){
+ 	bigger++;
+ }
+  document.write(area); 
+ document.write('<br>'); 
+
+ } 
+ document.write(bigger+' bigger than 12'); 
+ document.write('<br>'); 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+ var sum=0;
+ var num;
+  for(i=0;i<10;i++) { 
+      num=prompt('Numero:','');
+    if(i>4){
+    	sum=parseInt(num)+parseInt(sum);
+    }
+
+  }
+  document.write('Sum last 5= '+sum); 
+ document.write('<br>'); 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+var mult;
+  for(i=1;i<=10;i++) { 
+     mult=5*parseInt(i);
+      document.write(mult); 
+ document.write('<br>'); 
+  }
+ 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+var multn;
+var n;
+ n=prompt('Numero:','');
+  for(j=1;j<=10;j++) { 
+     multn=n*parseInt(j);
+      document.write(multn); 
+ document.write('<br>'); 
+  }
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ var c1;
+    var c2;
+    var c3;
+    var equi=0;
+    var isos=0;
+    var scal=0;
+    for(x=0;x<4;x++){
+         c1=prompt('Costat 1:','');
+         c2=prompt('Costat 2:','');
+         c3=prompt('Costat 3:','');
+
+          if(c1==c2 && c2==c3){
+          	equi++;
+          	document.write('Equilateral');
+          	document.write('<br>'); 
+          }else if(c1!=c2 && c2!=c3 && c1!=c3){
+          	scal++;
+          	document.write('Scalene');
+          	document.write('<br>'); 
+          }else{
+          	isos++;
+          	document.write('Isosceles');
+          	document.write('<br>'); 
+          }
+}
+      var more;
+      if(equi>isos && equi>scal){
+      	more='equilateral';
+      }else if(isos>equi && isos>scal){
+        more='isosceles';
+      }else{
+      	more='scalene';
+      }
+      document.write(equi+ ' equilateral'); 
+       document.write('<br>'); 
+      document.write(isos+ ' isosceles'); 
+       document.write('<br>'); 
+      document.write(scal+ ' scalene'); 
+      document.write('<br>'); 
+      document.write('Hi ha més '+more); 
+      document.write('<br>'); 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+var pos=0;
+    var neg=0;
+    var odd=0;
+    var sum=0;
+    for(l=0;l<10;l++){
+         n=prompt('','');
+         
+         if(n>=0){
+         	pos++;
+         }else{
+            neg++;
+         }
+
+         if(n%2==0){
+         	sum=parseInt(n)+parseInt(sum);
+         }else{
+         	odd++;
+         }
+       }
+      document.write(pos+ ' positius'); 
+       document.write('<br>'); 
+      document.write(neg+ ' negatius'); 
+       document.write('<br>'); 
+      document.write(odd+ ' impars'); 
+      document.write('<br>'); 
+      document.write('La suma dels pars= '+sum); 
+      document.write('<br>');
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+ var classA=0;
+    var classB=0;
+    var classC=0;
+    var sumA=0;
+    var sumB=0;
+    var sumC=0;
+    for(l=0;l<22;l++){
+         n=prompt('','');
+         if(l<5){
+         sumA=parseInt(n)+parseInt(sumA);
+          }else if(l>=5 && l<11){
+          	sumB=parseInt(n)+parseInt(sumB);
+          }else{
+          	sumC=parseInt(n)+parseInt(sumC);
+          }
+      }
+      classA=parseInt(sumA)/5;
+      classB=parseInt(sumB)/5;
+      classC=parseInt(sumC)/5;
+      document.write(classA+ ' classe a'); 
+       document.write('<br>'); 
+      document.write(classB+ ' classe b'); 
+       document.write('<br>'); 
+      document.write(classC+ ' classe c');  
+      document.write('<br>'); 
+      var mes;
+      if(classA>classB && classA>classC){
+      	mes='a';
+      }else if(classB>classA && classB>classC){
+        mes='b';
+      }else{
+      	mes='c';
+      }
+      document.write('La millor és la '+mes); 
+      document.write('<br>');
+
+
+
+
+</script> 
+</body> 
+</html>
