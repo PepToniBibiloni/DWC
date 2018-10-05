@@ -1,0 +1,109 @@
+<html>
+<head> </head>
+<body> 
+<script type="text/javascript">
+
+var v1=prompt("","");
+var v2=prompt("","");
+var v3=prompt("","");
+var numeros=[v1,v2,v3];
+
+function min(){
+	var minim=numeros[0];
+    for(var i=0;i<numeros.length;i++){
+       if(numeros[i]<minim){
+       	minim=numeros[i];
+       }
+    }
+    return minim;
+
+}
+document.write('Minim: '+min());
+
+////////////////////////////////////////////////////////////////////
+
+function ord() {
+    var canviat;
+    do {
+        canviat = false;
+        for (var i=0; i < numeros.length-1; i++) {
+            if (numeros[i] > numeros[i+1]) {
+                var j = numeros[i];
+                numeros[i] = numeros[i+1];
+                numeros[i+1] = j;
+                canviat = true;
+            }
+        }
+    } while (canviat);
+}
+
+document.write('<br>');
+ord();
+document.write('Ordenats: '+numeros.toString());
+
+
+//////////////////////////////////////////////
+
+document.write('<br>');
+var side=prompt("Side ","");
+function perimeter(side){
+	var per;
+	per= parseInt(side)*4;
+	return per;
+}
+document.write('Perimetre '+perimeter(side));
+document.write('<br>');
+
+///////////////////////////////////////////////
+
+
+var num=prompt("Numero ","");
+
+function llarg(num){
+	var lla=0;
+     if (num >= 1) ++lla;
+    while(num/10>=1){
+    	    num/=10;
+		    ++lla;
+   }
+return lla;
+}
+document.write('Llargaria '+llarg(num));
+document.write('<br>');
+
+////////////////////////////////////
+
+var num2=prompt("Numero ","");
+
+function aver(){
+	var sum=0;
+	var sol;
+	for(var t=0;t<numeros.length;t++){
+          sum+=parseInt(numeros[t]);
+	}
+    sol=parseInt(sum/numeros.length)
+    return sol;
+   }
+
+
+document.write('Avg '+aver());
+document.write('<br>');
+
+///////////////////////////
+
+var numeros2=[prompt(""),prompt(""),prompt(""),prompt(""),prompt(""),];
+
+function suma(){
+	var suma2=0;
+	
+	for(var k=0;k<numeros2.length;k++){
+          suma2+=parseInt(numeros2[k]);
+	}
+
+    return suma2;
+   }
+   document.write('Suma '+suma());
+document.write('<br>');
+</script>
+</body>
+</html>   

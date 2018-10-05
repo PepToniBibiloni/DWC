@@ -1,0 +1,65 @@
+<html>
+<head>
+<title></title>
+<script type="text/javascript">
+
+
+var valeu1;
+var valeu2;
+
+class Addition{
+  constructor(value1,value2){
+   valeu1=value1;
+   valeu2=value2;
+}
+
+loadvalue1() {
+ return valeu1;
+}
+
+loadvalue2() {
+ return valeu2;
+}
+result(){
+	var res;
+    res= parseInt(valeu1)+parseInt(valeu2);
+    return res;
+}
+}
+
+var name;
+var age;
+var topAge;
+class Person{
+ constructor(name,age){
+   this.name=name;
+   this.age=age;
+}
+get agee(){
+	return this.age;
+}
+}
+class Company{
+ constructor(name,topAge){
+   this.name=name;
+   this.topAge=topAge;
+}
+get agee(){
+	return this.age;
+}
+}
+
+</script>
+</head>
+<body>
+<script type="text/javascript">
+	const c=new Addition(10,8);
+	document.write(c.loadvalue1());
+	document.write(c.loadvalue2());
+    document.write(c.result());
+    const p1=new Person('tofol','45');
+    const p2=new Person('tomeu','95');
+</script>
+</body>
+</html>
+      
