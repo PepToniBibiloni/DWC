@@ -1,0 +1,42 @@
+<html>
+<head></head>
+ <body>
+ <script type="text/javascript">
+
+function pow(){
+ var n=document.getElementById('num').value;
+alert('Square:' + Math.pow(n,2));
+}
+function big(){
+var n=document.getElementById('num').value;
+var y=document.getElementById('num2').value;
+if(n>y){
+alert('The biggest is '+n);
+}else{
+alert('The biggest is '+y);
+}
+}
+function nom(){
+   var n=document.getElementById('name').value;
+   var s=document.getElementById('surname').value;
+   alert(n+' '+s);
+
+	}
+ </script>
+
+<form>
+
+Enter a number: <input type="text" id="num"><br/>
+ <input type="button" value="Pow" onClick="pow()">
+ <br>
+Enter a number: <input type="text" id="num"><br/>
+Enter a number: <input type="text" id="num2"><br/>
+ <input type="button" value="Show the biggest one" onClick="big()">
+ <br>
+Name: <input type="text" id="name"><br/>
+Surname: <input type="text" id="surname"><br/>
+ <input type="button" value="Press" onClick="nom()">
+</form>
+</body>
+</html>
+    

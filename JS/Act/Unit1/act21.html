@@ -1,0 +1,22 @@
+<html>
+<head></head>
+<body> 
+<script type="text/javascript">
+function check(){
+var pass=document.getElementById('pass').value;
+var pass2=document.getElementById('pass2').value;
+if (pass==pass2){
+alert('Equal');
+}
+else {
+alert('Not equal');
+}
+}
+</script>
+<form>
+Enter a password: <input type="password" id="pass"><br/>
+Enter a password: <input type="password" id="pass2"><br/>
+<input type="button" value="Check" onClick="check()">
+</form>
+ </body>
+</html>

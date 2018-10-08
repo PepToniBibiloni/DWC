@@ -1,0 +1,124 @@
+
+<html>
+<head> </head>
+<body>
+<script type="text/javascript">
+
+function enterStrings(){
+	var count=0;
+	do{
+	var s=prompt('Enter a name:','');
+    count++;
+    }while(s!='end');
+    return count;
+}
+
+
+document.write(enterStrings());
+document.write('<br>');
+
+
+
+var string =prompt('Enter a longer string:','');
+var pal =prompt('Enter a string:','');
+
+var pos = string.indexOf(pal);
+
+if(pos >= 0) {
+
+	document.write("La paraula hi es a la posició " + pos);
+
+}else{
+
+	document.write("la palabra no hi es");
+
+}
+
+var paraula=prompt('Paraula:','');
+
+var count=0;
+for(var k=0;k<(paraula.length/2);k++){
+
+if(paraula.charAt(paraula.length)==paraula.charAt(k)) {
+
+	document.write("La paraula hi es a la posició " + pos);
+
+}else{
+
+	document.write("la palabra no hi es");
+
+}
+
+
+function Pal(par) {
+  var llarg = Math.floor(par.length / 2);
+  for (var i = 0; i < llarg; i++){
+    if (par[i] !== par[par.length - i - 1]){
+     document.write('No');
+    }
+}
+  document.write('Si');
+}
+var paraula=prompt('Paraula:','');
+
+Pal(paraula);
+
+function email(corr) {
+
+  for (var i = 0; i < corr.length; i++){
+    if (corr[i] =='@'){
+     return true;
+    }
+}
+  return false;
+}
+var correu=prompt('Correu:','');
+
+email(correu);
+
+
+function paraula(paraul) {
+   var countVow=0;
+   var llarg = Math.floor(paraul.length / 2);
+  for (var i = 0; i < llarg; i++){
+    document.write(paraul[i]);
+ } 
+    document.write('<br>');
+    document.write(paraul[paraul.length-1]);
+    document.write('<br>');
+
+for (var i = paraul.length; i >=0; i--){
+    document.write(paraul[i]);
+ } 
+ document.write('<br>');
+ for (var i = 0; i < paraul.length; i++){
+    document.write(paraul[i]+' ');
+ }
+  document.write('<br>');
+   for (var i = 0; i < paraul.length; i++){
+      if(paraul[i]=='a' || paraul[i]=='e' || paraul[i]=='i' || paraul[i]=='o' || paraul[i]=='u'){
+      	countVow++;
+      }
+ }
+ document.write(countVow);
+}
+var paraul=prompt('Paraula:','');
+
+paraula(paraul);
+
+function f(parau) {
+
+ for (var i = 0; i < parau.length; i++){
+    document.write(parau[i]);
+    document.write('<br>');
+ }
+ 
+}
+var parau=prompt('Paraula:','');
+
+f(parau);
+
+
+</script>
+</body>
+</html> 
