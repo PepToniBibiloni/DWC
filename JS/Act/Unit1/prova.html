@@ -1,25 +1,55 @@
 <html>
 <head></head>
  <body>
- <script type="text/javascript">
 
-function big(){
-var n=document.getElementById('num').value;
-var y=document.getElementById('num2').value;
-if(n>y){
-alert('The biggest is '+n);
-}else{
-alert('The biggest is '+y);
-}
+<p>Mallorca és de:</p>
+<select id="1question" size="4">
+  <option value="2.5">Balears</option>
+  <option value="0">Canaries</option>
+  <option value="0">Andalicia</option>
+    <option value="0">Catalunya</option>
+</select>
+<p>America es va descubrir l'any</p>
+<select id="2question" size="4">
+   <option value="0">1563</option>
+  <option value="0">1495</option>
+  <option value="2.5">1492</option>
+  <option value="0">1482</option>
+</select>
+<p>A quin continent està arabia</p>
+<select id="3question" size="4">
+   <option value="0">Europa</option>
+  <option value="0">Africa</option>
+  <option value="2.5">Asia</option>
+    <option value="0">Oceania<</option>
+</select>
+<p>A quina ciutat hi ha el Guggenheim</p>
+<select id="4question" size="4">
+   <option value="">Balears</option>
+  <option value="0">Madrid</option>
+  <option value="0">Galicia</option>
+    <option value="2.5">Pais Vasc</option>
+</select>
+
+
+<button onclick="calcularEx()">Envia</button>
+<p id="demo4"></p>
+
+
+<script>
+function calcularEx() {
+	var total=0;
+    total += parseFloat(document.getElementById("1question").value);
+    total += parseFloat(document.getElementById("2question").value);  
+    total += parseFloat(document.getElementById("3question").value);
+    total += parseFloat(document.getElementById("4question").value);  
+    alert('Has tret un: '+total);
+
 }
 
- </script>
+</script>
 <form>
 
-Enter a number: <input type="text" id="num"><br/>
-Enter a number: <input type="text" id="num2"><br/>
- <input type="button" value="Show the biggest one" onClick="big()">
- 
 </form>
 </body>
 </html>

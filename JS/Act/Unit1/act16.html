@@ -78,6 +78,12 @@ function vectorr(n,x1,x2){
     }
     
 }
+function printvectors(vector2,n){
+	for(var b=0;b<n;b++){
+    	document.write(vector2[b]);
+    }
+    
+}
 
 
 var vector;
@@ -93,7 +99,6 @@ document.write('Count= '+countHigher(vector));
 document.write('<br');
 document.write('Suma= '+sumHigher(vector));
 
-
 var n =prompt('Llargaria:','');
 var x1 =prompt('Valor 1:','');
 var x2 =prompt('Valor 2:','');
@@ -101,9 +106,9 @@ var vector2= new Array(n);
 vector2[0]=x1;
 vector2[1]=x2;
 
-vectorr(n,x1,x2);
-vector2.toString();
 
+vectorr(n,x1,x2);
+printvectors(vector2,n);
 </script>
 
 </body>

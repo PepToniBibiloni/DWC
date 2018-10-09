@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<select id="mySelect" size="3">
+  <option value="6">Pepperoni</option>
+  <option value="5">Quatro Formaggi</option>
+  <option value="4">Procciuto</option>
+</select>
+
+
+<button onclick="myFunction()">Selecciona</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("mySelect").length;
+          document.getElementById("demo").innerHTML = document.getElementById("mySelect").value+"€";
+
+}
+
+</script>
+
+
+
+<select id="proccesor" size="3">
+  <option value="400">Intel i3-$400</option>
+  <option value="600">Intel i5-$600<</option>
+  <option value="800">Intel i7-$800<</option>
+</select>
+<select id="monitor" size="3">
+  <option value="250">Samsung 20'-$250</option>
+  <option value="350">Samsung 22'-$350<</option>
+  <option value="550">Samsung 26'-$550<</option>
+</select>
+<select id="Hardisk" size="3">
+  <option value="300">500 Gb-$300</option>
+  <option value="440">1TB-$440<</option>
+  <option value="500">3TB-$500<</option>
+</select>
+
+<button onclick="calcular()">Calcula</button>
+<p id="demo2"></p>
+
+
+<script>
+function calcular() {
+    var x = document.getElementById("proccesor").value;
+    var y = document.getElementById("monitor").value;  
+    var z = document.getElementById("Hardisk").value;
+    var total=parseInt(x)+parseInt(y)+parseInt(z);
+    document.getElementById("demo2").innerHTML = "$"+total;
+
+}
+
+</script>
+
+
+
+
+<select id="pizzas" size="3">
+  <option value="6">Pepperoni</option>
+  <option value="5">Quatro Formaggi</option>
+  <option value="4">Procciuto</option>
+</select>
+  Cuantitat: <input type="text" id="num"><br/>
+
+<button onclick="preus()">Comprar</button>
+
+<p id="demo3"></p>
+
+<script>
+function preus() {
+    var total= parseInt(document.getElementById("pizzas").value)*parseInt(document.getElementById('num').value);
+          document.getElementById("demo3").innerHTML = total+"€";
+
+}
+</script>
+
+
+
+
+
+<p>Mallorca és de:</p>
+<select id="1question" size="4">
+  <option value="2.5">Balears</option>
+  <option value="0">Canaries</option>
+  <option value="0">Andalicia</option>
+    <option value="0">Catalunya</option>
+</select>
+<p>America es va descubrir l'any</p>
+<select id="2question" size="4">
+   <option value="0">1563</option>
+  <option value="0">1495</option>
+  <option value="2.5">1492</option>
+  <option value="0">1482</option>
+</select>
+<p>A quin continent està arabia</p>
+<select id="3question" size="4">
+   <option value="0">Europa</option>
+  <option value="0">Africa</option>
+  <option value="2.5">Asia</option>
+    <option value="0">Oceania<</option>
+</select>
+<p>A quina ciutat hi ha el Guggenheim</p>
+<select id="4question" size="4">
+   <option value="">Balears</option>
+  <option value="0">Madrid</option>
+  <option value="0">Galicia</option>
+    <option value="2.5">Pais Vasc</option>
+</select>
+
+
+<button onclick="calcularEx()">Envia</button>
+<p id="demo4"></p>
+
+
+<script>
+function calcularEx() {
+	var total=0;
+    total += parseFloat(document.getElementById("1question").value);
+    total += parseFloat(document.getElementById("2question").value);  
+    total += parseFloat(document.getElementById("3question").value);
+    total += parseFloat(document.getElementById("4question").value);  
+    alert('Has tret un: '+total);
+
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
