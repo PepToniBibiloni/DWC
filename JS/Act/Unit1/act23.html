@@ -1,0 +1,29 @@
+<html>
+<head></head>
+ <body>
+  <script type="text/javascript"> 
+ function nameSelected() {
+ 	var triades="";
+    if(document.getElementById("checkbox1").checked){
+    	triades+= "Football ";
+    }
+    if(document.getElementById("checkbox2").checked){
+    	triades+= "Tennis ";
+    }
+    if(document.getElementById("checkbox3").checked){
+    	triades+= "Karate ";
+    }
+    alert(triades);
+ }
+ </script> 
+<form>
+ <input type="checkbox" id="checkbox1">Football
+ <br>
+ <input type="checkbox" id="checkbox2">Tennis
+ <br>
+ <input type="checkbox" id="checkbox3">Karate
+ <br>
+ <input type="button" value="Envia" onClick="nameSelected()">
+ </form>
+ </body>
+ </html>

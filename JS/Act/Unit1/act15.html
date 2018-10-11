@@ -1,111 +1,36 @@
-<html>
 
-<head>
+<HTML>
 
-</head>
+<HEAD>
 
-<body>
+<SCRIPT type="text/javascript">
 
-<script type="text/javascript">
+function year() {
 
-function omplir(vector) {
+var year;
+var term;
 
-var f;
+year=new Date();
 
-for(f=0;f<vector.length;f++) {
 
-var v;
-
-v=prompt('Vector:','');
-
-vector[f]=parseInt(v);
+if(year.getMonth()<=3){
+   document.write('1st');
+}else if(year.getMonth()>3 && year.getMonth()<=6){
+   document.write('2nd');
+}else if(year.getMonth()>6 && year.getMonth()<=9){
+   document.write('3rd');
+}else{
+   document.write('4rd');
 }
 }
+year();
 
-function sum(vector) {
+</SCRIPT>
 
-var total=0;
+</HEAD>
 
-var f;
+<BODY>
 
-for(f=0;f<vector.length;f++)
-{
-total=total+vector[f];
-}
-document.write(total);
-document.write('<br>');
-return total;
-}
+</BODY>
 
-function avg(suma) {
-  var avg=0;
-  avg=(parseInt(suma)/8);
- document.write('Avg '+avg);
-document.write('<br>');
-}
-
-function countHigher(vector) {
-
-var countH=0;
-
-var f;
-
-for(f=0;f<vector.length;f++)
-{
-	if(vector[f]>5){
-       ++countH;
-}
-}
-return countH;
-}
-function sumHigher(vector) {
-
-var totH=0;
-
-var f;
-
-for(f=0;f<vector.length;f++)
-{
-	if(vector[f]>5){
-      totH+=parseInt(vector[f]);
-}
-}
-return totH;
-}
-function vectorr(n,x1,x2){
-    for(var b=2;b<n;b++){
-    	vector2[b]=parseInt(vector2[b-1])+parseInt(vector2[b-2]);
-    }
-    
-}
-
-
-var vector;
-
-vector=new Array(8);
-
-
-omplir(vector);
-var suma=0
-suma=sum(vector);
-avg(suma);
-document.write('Count= '+countHigher(vector));
-document.write('<br');
-document.write('Suma= '+sumHigher(vector));
-
-
-var n =prompt('Llargaria:','');
-var x1 =prompt('Valor 1:','');
-var x2 =prompt('Valor 2:','');
-var vector2= new Array(n);
-vector2[0]=x1;
-vector2[1]=x2;
-
-vectorr(n,x1,x2);
-vector2.toString();
-
-</script>
-
-</body>
-
-</html>
+</HTML>

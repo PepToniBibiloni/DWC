@@ -5,19 +5,19 @@
 <script type="text/javascript">
 
 function one() {
-alert('1');
+alert(document.getElementById("num").value);
 }
 function two() {
-alert('2');
+alert(document.getElementById("num2").value);
 }
 function three() {
-alert('3');
+alert(document.getElementById("num3").value);
 }
 </script>
 <form>
-<input type="button" onClick="one()" value="1">
-<input type="button" onClick="two()" value="2">
-<input type="button" onClick="three()" value="3">
+<input type="button" onClick="one()" value="1" id="num">
+<input type="button" onClick="two()" value="2" id="num2">
+<input type="button" onClick="three()" value="3" id="num3">
 </form>
 </body>
  </html> 

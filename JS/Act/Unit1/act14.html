@@ -47,16 +47,28 @@ class Company{
 get agee(){
 	return this.age;
 }
+apte(age){
+   if(age>topAge){
+   	return false;
+   }else{
+   	return true;
+   }
+}
 }
 
 </script>
 </head>
 <body>
 <script type="text/javascript">
-	const c=new Addition(10,8);
+    var num1=prompt("Number: ","");
+    var num2=prompt("Number: ","");
+	const c=new Addition(num1,num2);
 	document.write(c.loadvalue1());
 	document.write(c.loadvalue2());
-    document.write(c.result());
+    document.write("El resultat és "+c.result());
+    var compName=prompt("Company name ","");
+    var topAge=prompt("Company topAge","");
+	const com=new Company(compName,topAge);
     const p1=new Person('tofol','45');
     const p2=new Person('tomeu','95');
 </script>

@@ -1,0 +1,21 @@
+<html>
+<head></head>
+ <body>
+  <script type="text/javascript"> 
+ function check(){
+
+ alert('Name: '+document.getElementById("name").value+' correu: '+document.getElementById("email").value+' i comentari: '+document.getElementById("comentari").value);
+ }
+
+ </script>
+ <form>
+ <p>Nom:</p>
+ <textarea id="name" rows="1" cols="50" ></textarea> 
+  <p>Correu:</p>
+ <textarea id="email" rows="1" cols="50" ></textarea> 
+  <p>Comentari:</p>
+ <textarea id="comentari" rows="5" cols="50" ></textarea><br>
+ <input type="button" value="Check" onClick="check()">
+ </form>
+ </body>
+ </html>
