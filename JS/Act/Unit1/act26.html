@@ -1,0 +1,24 @@
+<html>
+<head></head>
+<body>
+<script type="text/javascript">
+
+
+function empty(pass){
+pass.value='';
+}
+
+function checkPass(pass){
+ if (pass.length<7 || pass.length>20){
+      alert('Contrasenya incorrecte');
+ } 
+}
+</script>
+<form>
+<input type="text" id="username"><br>
+<input type="password" id="password" onBlur="checkPass(this)" onFocus="empty(this)">
+<br>
+<input type="button" value="Confirm">
+</form>
+ </body>
+</html>
