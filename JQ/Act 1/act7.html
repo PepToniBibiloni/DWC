@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#s").click(function(){
+      $("#link").attr("href", "http://www.google.com/")
+    });
+    $("#m").click(function(){
+      $("#link").attr("href", "http://www.facebook.com/")
+    });
+    $("#h").click(function(){
+      $("#link").attr("href", "http://www.instagram.com/")
+    });
+});
+</script>
+</head>
+<body>
+
+<a href="" id="link">Link</a>
+<button id="s">1</button>
+<button id="m">2</button>
+<button id="h">3</button>
+</body>
+</html>

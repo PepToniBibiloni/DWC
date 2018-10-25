@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+	
+</script>
+</head>
+<body>
+<h2 id="a1">This is a heading</h2>
+<p id=a2>This is a paragraph</p>
+<p id="a3">This is another paragraph</p>
+<button id="b1">Hide p</button>
+<button id="b2">Hide p1</button>
+<button id="b3">Hide p2</button>
+<button id="b4">Show all</button>
+<script>
+
+	$(document).ready(function(){
+		$("#b1").click(function(){
+			$("p").hide();
+		});
+       $("#b2").click(function(){
+			$("#a2").hide(30);
+		});
+        $("#b3").click(function(){
+			$("#a3").hide();
+		});
+		 $("#b4").click(function(){
+			$("p").show();
+		});
+
+	});
+	
+
+</script>
+</body>
+</html>

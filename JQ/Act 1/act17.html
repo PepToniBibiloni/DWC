@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#b1").click(function(){
+        $("#f1").append('<input type="text">');
+        $("#f1").append('<button id="b2">Remove</button>');
+    });
+    $("#b2").click(function(){
+        $("#f1").last().remove();
+    });
+   
+});
+</script>
+</head>
+<body>
+<form id="f1">
+ <input type="text" value="Search" placeholder="Search">
+ <button id="b1">Add</button>
+</form>
+</body>
+</html>

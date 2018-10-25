@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<head id="h">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#b1").click(function(){
+       alert($("#h").text());
+    });
+    $("#b2").click(function(){
+       alert($("#b").text());
+    });
+});
+</script>
+<style>
+
+thead.th {color:green;}
+tbody.tb {color: blue;}
+table{
+	border: 1px solid black;
+}
+</style>
+</head>
+<body id="b">
+<table> 
+<thead class="th" id="thea">
+<tr>
+   <th>OFF</th>
+   <th>OFF</th>
+</tr>
+</thead>
+<tbody class="tb" id="tbod">
+<tr>
+	 <td>OFF</td>
+   <td>OFF</td>
+</tr>
+</tbody>
+</table>
+<button id="b1">Head</button>
+<button id="b2">Body</button>
+</body>
+</html>

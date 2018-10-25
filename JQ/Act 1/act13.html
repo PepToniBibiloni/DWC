@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+    $("#div1").mousemove(function(event){
+        $("#div1").text(event.pageX + ", " + event.pageY);
+    });
+});
+</script>
+<style type="text/css">
+	div{
+		background-color: blue;
+        width: 200px;
+        height: 200px;
+        position: fixed;
+ 
+	}
+
+</style>
+</head>
+<body>
+<div id="div1">
+</div>
+</body>
+</html>

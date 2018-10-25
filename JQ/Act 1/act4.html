@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#y").click(function(){
+       var x; x=$("#t1");
+      x.css("background-color","#ffff00");
+    });
+$("#t2").click(function(){
+       var x; x=$("#t2");
+       x.css("fontSize",20);
+    });
+});
+</script>
+</head>
+<body>
+<table bgcolor="#f2663" id="t1">
+<tr class="row" id="a">
+	 <td>a</td>
+</tr>
+<tr class="row" id="z">
+	 <td>z</td>
+</tr>
+<tr class="row" id="y">
+   <td>y</td>
+</tr>
+</table>
+
+<table id="t2">
+<tr class="row">
+   <td>hola</td>
+</tr>
+<tr class="row">
+   <td>hola</td>
+</tr>
+<tr class="row">
+   <td>hola</td>
+</tr>
+</table>
+</body>
+</html>

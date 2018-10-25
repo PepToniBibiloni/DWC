@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#b1").mouseup(function(){
+        $("#b1").css("background-color", "yellow");
+    });
+    $("#b2").mousedown(function(){
+        $("#b1").css("background-color", "");
+    });
+});
+</script>
+</head>
+<body>
+
+<button id="b1">Button 1</button>
+<button id="b2">Button 2</button>
+
+</body>
+</html>
