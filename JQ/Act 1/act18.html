@@ -3,22 +3,34 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
+	var numitems=0;
 $(document).ready(function(){
     $("#b1").click(function(){
-        $("#f1").append('<input type="text">');
-        $("#f1").append('<button id="b2">Remove</button>');
+    	var txt=$("<input/>",{type:'text',id: 'input_'+numitems,value:numitems});
+    	var but=$("<input/>",{type:'button',id: 'but_'+numitems,value:'REMOVE '+numitems,click: function(){cont.remove();}});
+    	var cont=$("<div/>",{id: 'div_'+numitems});
+    	$("#div1").append(cont);
+    	$("#div_"+numitems).append(txt,but);
+    	 numitems++;
     });
-    $("#b2").click(function(){
-        $("#f1").last().remove();
+
+
+   $("#b2").click(function(){
+    	$("#div1").empty();
+    	numitems=0;
+    });
+
     });
    
-});
 </script>
 </head>
 <body>
-<form id="f1">
- <input type="text" value="Search" placeholder="Search">
+<input type="text" value="Search" placeholder="Search"><br>
+<div id="div1">
+ </div>
+ <div>
  <button id="b1">Add</button>
-</form>
+ <button id="b2">Remove All</button>
+ <div>
 </body>
 </html>

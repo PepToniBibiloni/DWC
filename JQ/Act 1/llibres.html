@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+    	var books=new Array();
+    	function book(t,p,c,co,r){
+           this.title=t;
+           this.pages=p;
+           this.category=c;
+           this.col=co;
+           this.row=r;
+    	}
+    	var countBooks=0;
+        $(document).ready(function(){
+           $("#b1").click(function(){
+    	      var t = $("#title").val();
+    	      var c= $("#cats").val();
+			  var p = $("#pages").val();
+			  var co = $("#col").val();
+			  var r = $("#row").val();
+              b = new book(t,p,c,co,r);
+			  books.push(b);
+			  countBooks++;
+             });
+
+           $("#b2").click(function(){
+           	var index;
+           	var tit=$("#title").val();
+    	       for(var i=0;i<b.length;i++){
+    	       	    b=books[i];
+                    if(tit==b.title){
+                         index=i;
+                    }
+    	       }
+    	       books.splice(index,1);
+
+             });
+
+           $("#b3").click(function(){
+			txt = "";
+			for(var i=0; i<books.length; i++){
+				b = books[i];
+				txt += b.title + ", "+ b.pages+", "+b.category+ ", "+ b.col+", "+b.row+"<br>";
+
+			}
+			$("#printer").html(txt);
+
+                });
+
+             $("#b5").click(function(){
+                $("#printer").append(countBooks);
+
+             });
+            });
+
+
+
+
+    </script>
+	</head>
+	<style>
+		td { text-align:center;}
+	</style>
+	<body>
+		TITLE: <input type="text" id="title" /><br/>
+		NUM.PAGES: <input type="text" id="pages" /><br/>
+		CATEGORY:
+		<select id="cats">
+			<option value="CLASSIC">CLASSIC</option>
+			<option value="SCIENCE">SCIENCE</option>
+			<option value="SPORTS">SPORTS</option>
+			<option value="COMEDY">COMEDY</option>
+		</select> <br/>
+		POSITION (COL / ROW):
+		<select id="col">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+		</select> /
+		<select id="row">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+		</select> <br/>
+		<button id="b1">ADD BOOK</button> 
+		<button id="b2">REMOVE BOOK</button> 
+		<button id="b3">PRINT ALL BOOKS</button>
+		<button id="b4">PRINT LIBRARY</button>
+		<button id="b5">NUM BOOKS</button>
+		<hr/>
+		<div id="printer">
+			
+		</div>
+	</body>
+</html>
