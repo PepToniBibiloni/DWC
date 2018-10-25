@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+
+$(document).ready(function(){
+    $("#div1").click(function(){
+        $("#div1").fadeOut("slow",function() {
+           $("#div1").fadeIn("slow");} )
+    });
+    });
+
+</script>
+<style type="text/css">
+	div{
+		width: 500px;
+		height: 500px;
+		background-color: yellow;
+	}
+</style>
+</head>
+<body>
+ <div id="div1">
+    <p>Element appears or disappears immediately: show() / hide().</p>
+    <p>Fast animation: show("fast") / hide("fast").</p>
+    <p>Normal animation: show("normal") / hide("normal").</p>    
+ <div>
+</body>
+</html>
