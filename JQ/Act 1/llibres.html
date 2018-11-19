@@ -4,14 +4,25 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript">
     	var books=new Array();
+    	var countBooks=0;
     	function book(t,p,c,co,r){
            this.title=t;
            this.pages=p;
            this.category=c;
            this.col=co;
            this.row=r;
+           countBooks++;
     	}
-    	var countBooks=0;
+    	function getBook(c, r){
+			for(var i=0; i<books.length; i++){
+				var b = books[i];
+				if(b.col==c && b.row==r){
+					return b;
+				}
+			}
+			return null;
+		}
+    	
         $(document).ready(function(){
            $("#b1").click(function(){
     	      var t = $("#title").val();
@@ -21,24 +32,23 @@
 			  var r = $("#row").val();
               b = new book(t,p,c,co,r);
 			  books.push(b);
-			  countBooks++;
+			 
              });
 
            $("#b2").click(function(){
            	var index;
-           	var tit=$("#title").val();
-    	       for(var i=0;i<b.length;i++){
-    	       	    b=books[i];
-                    if(tit==b.title){
+    	       for(var i=0;i<books.length;i++){
+                    if($("#title").val()==books[i].title){
                          index=i;
                     }
-    	       }
-    	       books.splice(index,1);
+                     }
+                   books.splice(index,1);
+    	      
 
              });
 
            $("#b3").click(function(){
-			txt = "";
+			var txt = "";
 			for(var i=0; i<books.length; i++){
 				b = books[i];
 				txt += b.title + ", "+ b.pages+", "+b.category+ ", "+ b.col+", "+b.row+"<br>";
@@ -48,12 +58,43 @@
 
                 });
 
+           
+
+             $("#b4").click(function(){
+                   
+
+
+    	       	       var txt="";
+                       txt+="<table><tr>";
+
+                          for(var j=0;j<4;j++){ 	
+                          	 for(var i=0;i<4;i++){ 	
+                          	 	b=getBook(i,j);
+                          	    if(b==null){
+                          		    txt+="<td><img src='empty.png' width='100px'></td>";
+                              	}else{
+                          		     txt+="<td><img src='"+b.category+".png' width='100px'><p>"+b.title+" "+b.pages+"pgs </p</td>";
+                            	}
+                              }
+                               if(j<3){
+                                     txt+="</tr><tr>";
+                                }
+                                
+                          	}                 
+                       txt+="</tr></table>";
+
+    	            
+    	             
+    	            
+
+                 $("#printer").html(txt);
+             });
+
              $("#b5").click(function(){
                 $("#printer").append(countBooks);
 
              });
-            });
-
+         });
 
 
 
@@ -67,10 +108,10 @@
 		NUM.PAGES: <input type="text" id="pages" /><br/>
 		CATEGORY:
 		<select id="cats">
-			<option value="CLASSIC">CLASSIC</option>
-			<option value="SCIENCE">SCIENCE</option>
-			<option value="SPORTS">SPORTS</option>
-			<option value="COMEDY">COMEDY</option>
+			<option value="classic">CLASSIC</option>
+			<option value="science">SCIENCE</option>
+			<option value="sports">SPORTS</option>
+			<option value="comedy">COMEDY</option>
 		</select> <br/>
 		POSITION (COL / ROW):
 		<select id="col">
