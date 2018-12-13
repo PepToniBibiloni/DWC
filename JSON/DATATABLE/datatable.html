@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DataTablesJS.</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/select/1.2.7/css/select.bootstrap4.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/select/1.2.7/css/select.dataTables.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div id="alert_message"></div>
+    <div class="row">
+        <select id="listaViviendas" class="form-control">
+        </select>
+        <div class="col">
+            <button type="button" class="btn btn-outline-danger" id="b2">All</button>
+            <button type="button" class="btn btn-outline-danger" id="b3">Id visible</button>
+            <button type="button" class="btn btn-outline-danger" id="b4">Edit</button>
+            <button type="button" class="btn btn-outline-danger" id="b5">Delete</button>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col">
+            <table id="taula" class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <br/>
+</div>
+<div id="modalEditaCasa" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edita Casa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form role="form" name="formEdita">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Id:</label>
+                            <input id="idc" type="text" class="form-control" placeholder="Id Casa" readonly="readonly" name="id">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Nom:</label>
+                            <input id="nomc" type="text" class="form-control" placeholder="Nom Casa" name="nom" required>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tancar</button>
+                <button id="bEditaCasa" type="button" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modalDeleteCasa" class="modal fade" tabindex="-3" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Casa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div id="deleteBody" class="modal-body">
+                    <p>Segur que vols eliminar la casa <span id="infoCasa"></span>?</p>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Tancar</button>
+                <button type="button" class="btn btn-primary" id="btnDelete">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    $(document).ready(function() {
+        var t = $('#taula').DataTable( {
+            responsive: true,
+            ajax: {
+                url: 'cases.php',
+                dataSrc: '',
+                type:"POST",
+            },
+            columns:  [
+                { data: 'id' },
+                { data:'nom' }
+            ],
+            language: {
+                url: "//cdn.datatables.net/plug-ins/1.10.19/i18n/Catalan.json"
+            },
+            dom: 'Bfrtip',
+            buttons: [
+                'copy',
+                'csv',
+                'excel',
+                'pdf',
+                {
+                    extend: 'print',
+                    text: 'Print all (not just selected)',
+                    exportOptions: {
+                        modifier: {
+                            selected: null
+                        }
+                    }
+                }
+            ],
+            columnDefs: [
+                { responsivePriority: 1, targets: 0 },
+                { responsivePriority: 2, targets: -1 }
+            ],
+            select: true
+        } );
+
+        function loadData(){
+            t = $('#taula').DataTable( {
+                ajax: {
+                    url: 'cases.php',
+                    dataSrc: '',
+                    type:"POST",
+                },
+                columns:  [
+                    { data: 'id' },
+                    { data:'nom' }
+                ],
+                language: {
+                    url: "//cdn.datatables.net/plug-ins/1.10.19/i18n/Catalan.json"
+                },
+                select: true
+            } );
+        }
+        t.column(0).visible(false);
+        $("#b1").click(function(){
+            t.search("1").draw();
+        });
+        $("#b2").click(function(){
+            t.search("").draw();
+        });
+        $("#b3").click(function(){
+            var b = t.column(0).visible();
+            t.column(0).visible(!b);
+        });
+        $("#b4").click(function(){
+            var d = t.rows({selected:true}).data();
+            var num = t.rows( { selected: true }).count();
+            if(num>0){
+                modalEditaCasa(d[0]['id']);
+            }
+            else {
+                alert("NO HI HA RES SELECCIONAT.");
+            }
+        });
+        function modalEditaCasa(idCasa) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var item = JSON.parse(this.responseText)[0];
+                    //console.log(item);
+                    $("#idc").val(item.id);
+                    $("#nomc").val(item.nom);
+                    $("#modalEditaCasa").modal();
+                }
+            };
+            xhttp.open("GET", "casa.php?id="+idCasa, true);
+            xhttp.send();
+        }
+        $("#b5").click(function(){
+            var d = t.rows({selected:true}).data();
+            var num = t.rows( { selected: true }).count();
+            if(num>0){
+                //alert("DATA:"+d[0]['id']+" "+d[0]['nom']);
+                modalDeleteCasa(d[0]['id']);
+            }
+            else {
+                alert("NO HI HA RES SELECCIONAT.");
+            }
+        });
+        function modalDeleteCasa(idCasa) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var item = JSON.parse(this.responseText)[0];
+                    console.log(item);
+                    $("#infoCasa").html(item.nom);
+                    $("#modalDeleteCasa").modal();
+                }
+            };
+            xhttp.open("GET", "casa.php?id="+idCasa, true);
+            xhttp.send();
+        }
+        $('#bEditaCasa').click(function() {
+
+            var id = $("#idc").val();
+            var nom =$("#nomc").val();
+            $.ajax({
+                url:"editaCasa.php",
+                method:"POST",
+                data:{id:id, nom:nom},
+                success:function(data){
+                    $('#alert_message').html('<div class="alert alert-success">'+data+'</div>');
+                    t.destroy();
+                    $("#modalEditaCasa").modal('hide');
+                    loadData();
+                }
+            });
+            setInterval(function(){
+                $('#alert_message').html('');
+            }, 5000);
+        });
+        function loadViviendasDropdown() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var viviendas = JSON.parse(this.responseText);
+                    for (x in viviendas) {
+                        var nomVivenda = viviendas[x].nom;
+                        var viviendaId = viviendas[x].id;
+                        dropd = "<option value=" + viviendaId + ">" + nomVivenda + "</option>";
+                        $("#listaViviendas").append(dropd);
+                    }
+                }
+            };
+            xhttp.open("GET", "cases.php", true);
+            xhttp.send();
+        }
+        loadViviendasDropdown();
+        document.getElementById("listaViviendas").onchange = function () {
+            $(".cardMessages").remove();
+            viviendaID = this.value;
+            t.search(viviendaID).draw();
+
+        };
+
+    } );
+</script>
+</body>
+</html>
